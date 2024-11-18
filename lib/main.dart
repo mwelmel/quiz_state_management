@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         textTheme: themeProvider.textTheme, // Apply the dynamic text theme here
       ),
       home: MainPage(),
+      debugShowCheckedModeBanner: false, // Remove debug banner
     );
   }
 }
@@ -31,18 +32,45 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Main Page'),
+        title: Text(
+          'Main Page',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 4.0,
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate to SettingsScreen
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SettingsScreen()),
-            );
-          },
-          child: Text('Go to Settings'),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).primaryColor,
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              elevation: 6,
+            ),
+            onPressed: () {
+              // Navigate to SettingsScreen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsScreen()),
+              );
+            },
+            child: Text(
+              'Go to Settings',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
+              ),
+            ),
+          ),
         ),
       ),
     );
