@@ -23,7 +23,30 @@ class MyApp extends StatelessWidget {
               fontFamily: themeProvider.fontFamily,
             ),
       ),
-      home: SettingsScreen(),
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Main Page'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Navigate to the SettingsScreen
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsScreen()),
+            );
+          },
+          child: Text('Go to Settings'),
+        ),
+      ),
     );
   }
 }

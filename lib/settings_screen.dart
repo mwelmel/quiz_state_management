@@ -28,12 +28,12 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Custom Theme'),
+            title: Text('Light Pink Theme'),
             onTap: () {
               themeProvider.setTheme(
                 ThemeData(
-                  primarySwatch: Colors.teal,
-                  hintColor: Colors.orange,
+                  primarySwatch: Colors.pink,
+                  brightness: Brightness.light,
                 ),
               );
             },
