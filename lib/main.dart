@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quiz_state_management/settings_screen.dart';
-import 'theme_provider.dart'; // Import the ThemeProvider file
+import 'theme_provider.dart';
+import 'settings_screen.dart'; // Assuming you have this file
 
 void main() {
   runApp(
@@ -19,9 +19,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       theme: themeProvider.themeData.copyWith(
-        textTheme: Theme.of(context).textTheme.apply(
-              fontFamily: themeProvider.fontFamily,
-            ),
+        textTheme: themeProvider.textTheme, // Apply the dynamic text theme here
       ),
       home: MainPage(),
     );
@@ -38,7 +36,7 @@ class MainPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            // Navigate to the SettingsScreen
+            // Navigate to SettingsScreen
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => SettingsScreen()),

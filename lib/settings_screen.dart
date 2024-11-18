@@ -28,16 +28,27 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Light Pink Theme'),
+            title: Text('Pink Theme'),
             onTap: () {
               themeProvider.setTheme(
                 ThemeData(
-                  primarySwatch: Colors.pink,
-                  brightness: Brightness.light,
+                  brightness: Brightness.light,  // Set brightness (light or dark)
+                  primaryColor: Colors.pink,     // Set primary color to pink
+                  colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink).copyWith(
+                    secondary: Colors.pinkAccent, // Set secondary color to pink accent
+                  ),
+                  buttonTheme: ButtonThemeData(
+                    buttonColor: Colors.pink,     // Buttons will have a pink background
+                  ),
+                  appBarTheme: AppBarTheme(
+                    backgroundColor: Colors.pink,  // Set AppBar color to pink
+                  ),
+                  scaffoldBackgroundColor: Colors.pink[50],  // Set background to a light pink
                 ),
               );
             },
           ),
+          
           // Font Selection
           Text('Select Font', style: TextStyle(fontSize: 18)),
           ListTile(
